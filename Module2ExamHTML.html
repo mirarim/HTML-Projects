@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+</head>
+<style type="text/css">
+    body {
+        background-color: black;
+    }
+
+    #container {
+        background-color: rgb(12, 24, 65);
+        border: 5px solid rgb(36, 35, 41);
+        width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .table {
+        margin: 25px auto;
+        font-size: 15px;
+        color: rgb(238, 236, 236);
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin: 0 auto;
+    }
+
+    #table_main {
+        margin-top: 15px;
+        padding-left: 330px;
+    }
+
+    .quote_q {
+        float: left;
+        color: aquamarine;
+        font-size: 20px;
+        font-family:monospace;
+        
+    }
+
+    .counter {
+        color: aquamarine;
+        font-size: 20px;
+        font-family:monospace;
+    }
+
+    .qqt {
+        float: left;
+    }
+
+
+    #button {
+        margin: 15px auto;
+        height: 50px;
+        width: 250px;
+        font-size: 22px;
+        background-color: aliceblue;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .msg {
+        color: rgb(238, 236, 236);
+        font-family:monospace;
+        font-size: 20px;
+    }
+
+    #button:hover{
+            background-color: rgb(40, 38, 77);
+
+    }
+
+
+</style>
+<script type="text/javascript">
+
+        var qt1 = 0; var qt2 = 0; var qt3 = 0; var qt4 = 0; var qt5 = 0;
+        var qt6 = 0; var qt7 = 0; var qt8 = 0; var qt9 = 0; var qt10 = 0;
+        
+        
+        function Quote() {
+          var image = document.getElementById("image");
+          var rand_quote = Math.floor(Math.random() * 10) + 1;
+          var random;
+          if (rand_quote == 1) {
+            image.src = "q1.png";
+            qt1++;
+            random = document.getElementById("qq1");
+          } else if (rand_quote == 2) {
+            image.src = "q2.png";
+            qt2++;
+            
+            random = document.getElementById("qq2");
+          } else if (rand_quote == 3) {
+            image.src = "q3.png";
+            qt3++;
+
+            random = document.getElementById("qq3");
+          } else if (rand_quote == 4) {
+            image.src = "q4.png";
+            qt4++;
+
+            random = document.getElementById("qq4");
+          } else if (rand_quote == 5) {
+            image.src = "q5.png";
+            qt5++;
+
+            random = document.getElementById("qq5");
+          } else if (rand_quote == 6) {
+            image.src = "q6.png";
+            qt6++;
+            
+            random = document.getElementById("qq6");
+          } else if (rand_quote == 7) {
+            image.src = "q7.png";
+            qt7++;
+
+            random = document.getElementById("qq7");
+          } else if (rand_quote == 8) {
+            image.src = "q8.png";
+            qt8++;
+
+            random = document.getElementById("qq8");
+          } else if (rand_quote == 9) {
+            image.src = "q9.png";
+            qt9++;
+
+            random = document.getElementById("qq9");
+          } else if (rand_quote == 10) {
+            image.src = "q10.png";
+            qt10++;
+
+            random = document.getElementById("qq10");
+          }
+
+          random.innerHTML = rand_quote == 1 ? qt1 : rand_quote == 2 ? qt2 : qt3;
+        }
+
+
+</script>
+<body>
+    <div id="container">
+        
+        <img id="image" src="q1.png" alt="quote1">
+
+        <div class="table">
+            <table id="table_main">
+                <tr>
+                  <th class="quote_q">Quote</th>
+                  <th class="counter">Counter</th>
+                </tr>
+    
+                <tr>
+                  <td class="qqt">Quote 1</td>
+                  <td id="qq1">0</td>
+                </tr>
+    
+                <tr>
+                  <td class="qqt">Quote 2</td>
+                  <td id="qq2">0</td>
+                </tr>
+    
+                <tr>
+                  <td class="qqt">Quote 3</td>
+                  <td id="qq3">0</td>
+                </tr>
+    
+                <tr>
+                  <td class="qqt">Quote 4</td>
+                  <td id="qq4">0</td>
+                </tr>
+    
+                <tr>
+                  <td class="qqt">Quote 5</td>
+                  <td id="qq5">0</td>
+                </tr>
+    
+                <tr>
+                  <td class="qqt">Quote 6</td>
+                  <td id="qq6">0</td>
+                </tr>
+    
+                <tr>
+                  <td class="qqt">Quote 7</td>
+                  <td id="qq7">0</td>
+                </tr>
+    
+                <tr>
+                  <td class="qqt">Quote 8</td>
+                  <td id="qq8">0</td>
+                </tr>
+    
+                <tr>
+                  <td class="qqt">Quote 9</td>
+                  <td id="qq9">0</td>
+                </tr>
+    
+                <tr>
+                  <td class="qqt">Quote 10</td>
+                  <td id="qq10">0</td>
+                </tr>
+    
+              </table>
+        </div>
+
+        <button id="button" onclick="Quote()">Generate Quote</button>
+        <p class="msg">PRESS THE BUTTON TO GENERATE NEW QUOTES</p>
+    </div>
+</body>
+</html>
