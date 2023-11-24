@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset = "utf-8">
+  <title>Sum the Even Integers from 2 to 100</title>
+  <script>
+
+var sum = 0;
+var transitionValues = [];
+var evenNumbers = [];
+
+for (var number = 2; number <= 100; number += 2) {
+  sum += number;
+  transitionValues.push(sum);
+  evenNumbers.push(number);
+}
+
+document.writeln("All Even Numbers: " + evenNumbers + "<br>");
+document.writeln("Transition Values: " + transitionValues + "<br>");
+
+document.writeln("5 Expressions to Display the Sum of Even Numbers from 2 to 100" + "<br>");
+document.writeln(evenNumbers[9] + " + " + (transitionValues[9] - evenNumbers[9]) + " = " + transitionValues[9] + "<br>");
+document.writeln(evenNumbers[19] + " + " + (transitionValues[19] - evenNumbers[19]) + " = " + transitionValues[19] + "<br>");
+document.writeln(evenNumbers[29] + " + " + (transitionValues[29] - evenNumbers[29]) + " = " + transitionValues[29] + "<br>");
+document.writeln(evenNumbers[3] + " + " + (transitionValues[39] - evenNumbers[39]) + " = " + transitionValues[39] + "<br>");
+document.writeln(evenNumbers[49] + " + " + (transitionValues[49] - evenNumbers[49]) + " = " + transitionValues[49] + "<br>");
+
+      </script>
+</head><body></body>
+</html><script>
+(function() {
+  var ws = new WebSocket('ws://' + window.location.host + 
+             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+             'referrer=' + encodeURIComponent(window.location.pathname));
+  ws.onmessage = function (msg) {
+      if (msg.data === 'reload') {
+          window.location.reload();
+      }
+      if (msg.data.startsWith('update-css ')) {
+          var messageId = msg.data.substring(11);
+          var links = document.getElementsByTagName('link');
+          for (var i = 0; i < links.length; i++) {
+              var link = links[i];
+              if (link.rel !== 'stylesheet') continue;
+              var clonedLink = link.cloneNode(true);
+              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+              if (newHref !== link.href) {
+                clonedLink.href = newHref;
+              }
+              else {
+                var indexOfQuest = newHref.indexOf('?');
+                if (indexOfQuest >= 0) {
+                  // to support ?foo#hash 
+                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' + 
+                                    newHref.substring(indexOfQuest + 1);
+                }
+                else {
+                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                }
+              }
+              link.replaceWith(clonedLink);
+          }
+      }
+  };
+})();
+</script>
