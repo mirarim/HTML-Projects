@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Randomizer</title>
+</head>
+
+<body>
+    
+    <div id="container">
+        <h1>Word Randomizer</h1>
+    
+        <div id="pics">
+
+            <img id = "rus1" src = "rus1.png">
+            <img id = "rus2" src = "rus2.png">
+            <img id = "rus3" src = "rus3.png"> 
+            
+            <img id = "rus4" src = "rus4.png">
+            <img id = "rus5" src = "rus5.png">
+            <img id = "rus6" src = "rus6.png">
+            
+
+        </div>
+
+        <button id="randomizebutton" class="buttonmain">Randomize</button>
+    </div>
+    
+    </body>
+
+<script type="text/javascript">
+
+    function start(){
+
+    var button = document.getElementById("randomizebutton");
+    button.addEventListener("click", randomize, false);
+    }
+
+    var pic = document.getElementById("pics");
+
+    function randomize() {
+
+      var array = Array.from(pic.children);
+
+      array.sort(() => Math.random() - 0.5);
+
+      while (pic.firstChild) {
+        pic.removeChild(pic.firstChild);
+      }
+
+      for (var img of array) {
+        pic.appendChild(img);
+      }
+    } 
+    window.addEventListener("load", start, false);
+
+</script>
+
+<style type = "text/css">
+    img  { margin: 10px 10px 10px 10px; 
+                   
+    }
+
+     body {
+       background-color: rgb(38, 65, 71);
+     }             
+    
+     #container {
+          text-align: center;
+          position: relative;
+          background-color: rgb(12, 66, 88);
+          width: 800px;
+          border:10px rgb(136, 94, 40) inset;
+          margin-top: 100px;
+          left: 230px;
+     }               
+     .buttonmain {
+       margin: 15px auto;
+       height: 50px;
+       width: 150px;
+       color: aliceblue;
+       border: 5px rgb(42, 53, 87) outset;
+       font-size: 22px;
+       background-color: rgb(41, 65, 87);
+       font-family: cursive;
+       position: relative;
+       bottom: 15px;
+     }
+     .buttonmain:hover {
+          background-color: rgb(29, 29, 99);
+     }
+     
+     h1 {
+       font-family: cursive;
+       font-size: 40px;
+       color: aliceblue;
+     }
+
+</style>
+
+</html>
